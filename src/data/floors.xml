@@ -1,0 +1,93 @@
+
+<root>
+    <floor 
+        name="cave" 
+        tiles="graphic/floor_cave.png" 
+        background="graphic/CaveBack.bmp" 
+        walls="1" 
+        floors="3" 
+        clutter="3" 
+        stair="7" 
+        chance="1" >
+        <monster>
+            <mon key="BAT" floor="0" rnd="0.5" />
+            <mon key="SPIDER" floor="0" rnd="1" />
+            <mon key="SLIME" floor="0" rnd="1" />
+            <mon key="SNAKE" floor="0" rnd="1" />
+            <mon key="SKELETON" floor="5" rnd="1" />
+            <mon key="TROLL" floor="2" rnd="1" />
+        </monster>
+    </floor>
+
+
+    <floor 
+        name="forest" 
+        tiles="graphic/floor_forest.png" 
+        background="graphic/ForestBack.png" 
+        walls="4" 
+        floors="4" 
+        clutter="3" 
+        stair="11" 
+        chance="1" >
+        <monster>
+            <mon key="BEE" floor="0" rnd="1" />
+            <mon key="SPIDER" floor="0" rnd="1" />
+            <mon key="SLIME" floor="0" rnd="1" />
+            <mon key="SNAKE" floor="0" rnd="1" />
+            <mon key="SKELETON" floor="5" rnd="1" />
+        </monster>
+    </floor>
+
+    <floor 
+        name="castle" 
+        tiles="graphic/floor_castle.png" 
+        background="graphic/CastleBack.png" 
+        walls="1" 
+        floors="3" 
+        clutter="5" 
+        stair="9" 
+        chance="1" >
+        <monster>
+            <mon key="BAT" floor="0" rnd="0.5" />
+            <mon key="SPIDER" floor="0" rnd="1" />
+            <mon key="SLIME" floor="0" rnd="1" />
+            <mon key="SNAKE" floor="0" rnd="1" />
+            <mon key="SKELETON" floor="5" rnd="1" />
+        </monster>
+    </floor>
+    
+    <floor 
+        name="temple" 
+        tiles="graphic/floor_temple.png" 
+        background="graphic/TempleBack.png" 
+        walls="2" 
+        floors="3" 
+        clutter="2" 
+        stair="7" 
+        chance="0.5" >
+        <monster>
+            <mon key="SKELETON" floor="0" rnd="1" />
+            <mon key="IMP" floor="0" rnd="1" />
+        </monster>
+    </floor>
+    
+    <floor 
+        name="snow" 
+        tiles="graphic/floor_snow.bmp" 
+        background="graphic/SnowBack.png" 
+        walls="3" 
+        floors="3" 
+        clutter="0" 
+        stair="6" 
+        chance="0.5" >
+        <monster>
+            <mon key="WOLF" floor="0" rnd="1" />
+            <mon key="TROLL" floor="2" rnd="1" />
+        </monster>
+    </floor>
+
+</root>
+
+
+
+

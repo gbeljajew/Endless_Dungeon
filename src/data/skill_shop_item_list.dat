@@ -1,0 +1,20 @@
+// KEY;LokalisationKey;imageNumber;price0;priceLVL;chance
+
+
+
+MUNITION_QUALITY;skill.munition.quality;0;100;50;1
+MUNITION_FINDER;skill.munition.finder;0;100;50;1
+BIG_POCKETS;skill.big.pocket;0;100;50;1
+POTION_EFFECTIVENESS;skill.potion.effectiveness;0;100;50;1
+MULTITHROW;skill.multithrow;0;100;50;1
+MUNITION_RECOVERY;skill.munition.recovery;0;100;50;1
+MEATSHIELD;skill.meatshield;0;100;50;1
+BLOCK;skill.block;0;100;50;1
+
+// active skills
+#HEAL;skill.active.heal;0;100;50;1
+#SLASH;skill.active.slash;0;100;50;1
+#FIREBALL;skill.active.fireball;0;100;50;1
+
+
+

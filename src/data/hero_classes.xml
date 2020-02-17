@@ -1,0 +1,35 @@
+<root>
+    <hero namekey="hero.class.hero" 
+          statperlvl="4" 
+          bonusperlvl="1" 
+          expperlvl="100" 
+          figureindex="0" 
+          figurekey="chars_tiles" 
+          faceindex="0" 
+          facekey="faces_tiles" 
+          skill_chance="0.1" >
+        <stats>
+            <STR sv="5" rnd="1"/>
+            <MAG sv="5" rnd="1"/>
+            <ARM sv="5" rnd="1"/>
+            <VIT sv="5" rnd="1"/>
+            <SPD sv="5" rnd="1"/>
+        </stats>
+        <skills>
+            <skill name="#SLASH" sv="1" rnd="1"/> 
+            <skill name="#FIREBALL" sv="1" rnd="1"/> 
+            <skill name="#HEAL" sv="1" rnd="1"/> 
+            <skill name="MEATSHIELD" sv="1" rnd="1"/> 
+            <skill name="BLOCK" sv="1" rnd="1"/> 
+        </skills>
+        <potions>
+            <potion name="HP_POTION" amount="3" />
+            <potion name="MP_POTION" amount="1" />
+            <potion name="SPEED_POTION" amount="0" />
+            <potion name="BOOST_POTION" amount="0" />
+        </potions>
+        <munition amount="5" />
+    </hero>
+
+
+</root>
