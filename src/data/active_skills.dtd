@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+    TODO define vocabulary identification
+    PUBLIC ID: -//vendor//vocabulary//EN
+    SYSTEM ID: http://server/path/active_skills.dtd
+
+-->
+
+<!--
+    An example how to use this DTD from your XML document:
+
+    <?xml version="1.0"?>
+
+    <!DOCTYPE root SYSTEM "active_skills.dtd">
+
+    <root>
+    ...
+    </root>
+-->
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT root (skill)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT skill (them|me|twin_animation)*>
+<!ATTLIST skill
+    key CDATA #IMPLIED
+    mana0 CDATA #IMPLIED
+    manal CDATA #IMPLIED
+    cd CDATA #IMPLIED
+    number0 CDATA #IMPLIED
+    numberl CDATA #IMPLIED
+    complexity0 CDATA #IMPLIED
+    complexityl CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT them (damage|crit|animation)*>
+<!ATTLIST them
+    typ CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT damage (status|boost)*>
+<!ATTLIST damage
+    element CDATA #IMPLIED
+    modifer0 CDATA #IMPLIED
+    modiferl CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT status EMPTY>
+<!ATTLIST status
+    key CDATA #IMPLIED
+    chance0 CDATA #IMPLIED
+    chancel CDATA #IMPLIED
+    time CDATA #IMPLIED
+    remove CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT crit (status|boost)*>
+<!ATTLIST crit
+    chancemodifer CDATA #IMPLIED
+    damagemodifer CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT animation EMPTY>
+<!ATTLIST animation
+    key CDATA #IMPLIED
+    repeats0 CDATA #IMPLIED
+    repeatsl CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT me (damage|crit|animation)*>
+<!ATTLIST me
+    typ CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT boost EMPTY>
+<!ATTLIST boost
+    key CDATA #IMPLIED
+    val0 CDATA #IMPLIED
+    vall CDATA #IMPLIED
+    chance0 CDATA #IMPLIED
+    chancel CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT twin_animation EMPTY>
+<!ATTLIST twin_animation
+    order CDATA #IMPLIED
+    delay CDATA #IMPLIED
+  >
