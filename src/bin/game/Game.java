@@ -6,18 +6,14 @@
 
 package bin.game;
 
-import bin.game.panels.ScreenControl;
-import bin.game.resources.ResourcesContainer;
-
 /**
  *
  * @author gbeljajew
  */
-public class GameStart 
+public class Game 
 {
-    public static void main(String[] args)
+    public static void update()
     {
-        ResourcesContainer.init();
-        ScreenControl.init();
+        
     }
 }
