@@ -12,8 +12,10 @@ package bin.game;
  */
 public class GameConstants 
 {
-    public static final int SCREEN_WIDTH = 640;
-    public static final int SCREEN_HEIGHT = 480;
+    public static final int SCREEN_WIDTH = 800;
+    public static final int SCREEN_HEIGHT = 600;
+    public static final int MAP_SCREEN_WIDTH = 576;
+    public static final int MAP_SCREEN_HEIGHT = 576;
     /** time between updates. <br>
      * FPS = 1000 / TIMER_PERIOD */
     public static final int TIMER_PERIOD = 20;

@@ -7,7 +7,7 @@ package bin.game.util.drawable;
 
 import bin.game.GameConstants;
 import bin.game.resources.Animations;
-import bin.game.resources.ResourcesContainer;
+import bin.game.resources.GraphicResources;
 import bin.game.util.logger.MyLogger;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -185,21 +185,21 @@ public class FrameAnimation implements ResetableAnimation, RepeatableAnimation
             switch(imgType)
             {
                 case "ANIMATION":
-                    for (Image ma : ResourcesContainer.getMiskAnimationSprites(imgKey))
+                    for (Image ma : GraphicResources.getMiskAnimationSprites(imgKey))
                     {
                         images.add(ma);
                     }
                     break;
                     
                 case "TILESET":
-                    for (Image ma : ResourcesContainer.getMiskTileSet(imgKey))
+                    for (Image ma : GraphicResources.getMiskTileSet(imgKey))
                     {
                         images.add(ma);
                     }
                     break;
                     
                 case "IMAGE":
-                    images.add(ResourcesContainer.getMiskImage(imgKey));
+                    images.add(GraphicResources.getMiskImage(imgKey));
                     break;
                 default:
                     MyLogger.error("FrameAnimation.loadAnimation: unknown image type: " + imgType);

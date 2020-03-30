@@ -1,0 +1,96 @@
+// this is comment. line which starts with // will be ignored. do not use it inside other lines.
+// # key // key for tileset. should stand before map tile data.
+// TEXT key (x,y) // a text will be shown, if hero stands on tile (x,y)
+// SHOP key (x,y)(exitX,exitY) // a shop window will open if hero enters tile(x,y). 
+// after exit this shop window hero will be teleported to position (exitX,exitY).
+// 
+// a line represents a row on map. each tile is separated by ';'
+// each information is separated by ',' 
+// first number: number of tile image. mandatory
+// second number: is passable (0 == false, 1 == true) optional, default true.
+// third number: number of overlay image. optional, default null.
+//
+// tiles listing
+// 0  wall 1 left
+// 1  wall 1 middle
+// 2  wall 1 right
+// 3  wall 2 left
+// 4  wall 2 middle
+// 5  wall 2 right
+// 6  wall log left
+// 7  wall log middle
+// 8  wall log right
+// 9  routh red diagonal left
+// 10 routh red diagonal right
+// 11 routh red diagonal overlay left top
+// 12 routh red diagonal overlay right top
+// 13 routh gray diagonal overlay left top
+// 14 routh gray diagonal overlay right top
+// 15 window stain glass overlay
+// 16 window wood closed
+// 17 window wood open
+// 18 routh gray diagonal left
+// 19 routh gray diagonal right
+// 20 routh red diagonal overlay left bottom
+// 21 routh red diagonal overlay right bottom
+// 22 routh gray diagonal overlay left bottom
+// 23 routh gray diagonal overlay right bottom
+// 24 window stone overlay
+// 25 door
+// 26 well overlay
+// 27 tree overlay
+// 28 bush with flowers overlay
+// 29 tree palm overlay
+// 30 tree withered overlay
+// 31 gras
+// 32,33,34 gras with flowers
+// 35 wines overlay
+// 36 soil tile
+// 37 Sign Armour overlay
+// 38 sign alchemy overlay
+// 39 sign weapons overlay
+// 40 sign INN overlay
+// 41 sign Pub overlay
+// 42 Cross overlay
+// 43 magic circle
+// 44 sign skill shop overlay
+// 45 routh red vertical 1
+// 46 routh red vertical 2
+// 47 routh gray vertical 1
+// 48 routh gray vertical 2
+// 49 fence corner top left overlay
+// 50 fence horizontal overlay
+// 51 fence corner top right overlay
+// 52 fence vertical overlay
+// 53 fence corner bottom left overlay
+// 54 fence corner bottom right overlay
+
+
+
+# village_normal
+
+31,0,49;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,51
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,52;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
+31,0,53;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,54
+
+
+

@@ -17,7 +17,7 @@ public enum ScreenEnum
     OPTIONS,
     
     /** use your gold and xp to prepare for next run in dungeon */
-    VILLAGE,
+    MAP,
     /** switch to another hero */
     INN,
     /** upgrade your equipment */

@@ -25,13 +25,19 @@ class MainFrame extends JFrame
     @SuppressWarnings("OverridableMethodCallInConstructor")
     public MainFrame() throws HeadlessException
     {
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         this.panelSwitcher = new CardLayout();
         this.screenHolder = new JPanel(panelSwitcher);
         this.screenHolder.setPreferredSize(new Dimension(GameConstants.SCREEN_WIDTH, GameConstants.SCREEN_HEIGHT));
         
         this.add(this.screenHolder);
         
+        this.addAllScreens();
+        
         this.pack();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
         this.setVisible(true);
         
         this.switchScreen(ScreenEnum.INN);
@@ -40,6 +46,16 @@ class MainFrame extends JFrame
     void switchScreen(ScreenEnum screen)
     {
         this.panelSwitcher.show(this.screenHolder, screen.name());
+    }
+
+    private void addAllScreens()
+    {
+        this.addPanel(new MapScreen(), ScreenEnum.MAP);
+    }
+
+    private void addPanel(JPanel panel, ScreenEnum screenKey)
+    {
+        this.screenHolder.add(panel, screenKey.name());
     }
     
     

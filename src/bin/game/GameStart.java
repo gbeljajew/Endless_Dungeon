@@ -7,7 +7,8 @@
 package bin.game;
 
 import bin.game.panels.ScreenControl;
-import bin.game.resources.ResourcesContainer;
+import bin.game.resources.GameResources;
+import bin.game.resources.GraphicResources;
 
 /**
  *
@@ -17,7 +18,9 @@ public class GameStart
 {
     public static void main(String[] args)
     {
-        ResourcesContainer.init();
+        GraphicResources.init();
+        GameResources.init();
+        
         ScreenControl.init();
     }
 }

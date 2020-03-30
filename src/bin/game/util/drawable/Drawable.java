@@ -19,11 +19,11 @@ public interface Drawable
      * you should know yourslf where you are and where you should draw yourself.
      *
      * @param g
-     * @param kameraOffsetX x position on screen of something, which is used for
+     * @param cameraOffsetX x position on screen of something, which is used for
      * you to calculate your position on screen.
-     * @param kameraOffsetY y position on screen of something, which is used for
+     * @param cameraOffsetY y position on screen of something, which is used for
      * you to calculate your position on screen.
      */
-    public void draw(Graphics2D g, int kameraOffsetX, int kameraOffsetY);
+    public void draw(Graphics2D g, int cameraOffsetX, int cameraOffsetY);
 
 }

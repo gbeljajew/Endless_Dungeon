@@ -26,7 +26,7 @@ import org.xml.sax.SAXException;
  *
  * @autor gbeljajew
  */
-public class ResourcesContainer
+public class GraphicResources
 {
 
     private static final Map<String, Image> MISK_IMAGES = new HashMap<>();
@@ -102,7 +102,7 @@ public class ResourcesContainer
         {
             builder = factory.newDocumentBuilder();
 
-            Document document = builder.parse( ResourcesContainer.class.getResourceAsStream( "/data/images.pd" ) );
+            Document document = builder.parse(GraphicResources.class.getResourceAsStream( "/data/images.pd" ) );
             Element root = document.getDocumentElement();
 
             NodeList mon = root.getElementsByTagName( "image" );

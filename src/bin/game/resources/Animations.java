@@ -62,7 +62,7 @@ public class Animations
         // if we do not have this animation, then, maybe, 
         // it is key for misk animation we should use
         // delay should be stadard.
-        Image[] miskAnimation = ResourcesContainer.getMiskAnimationSprites(key);
+        Image[] miskAnimation = GraphicResources.getMiskAnimationSprites(key);
         
         if(miskAnimation != null)
         {
@@ -84,7 +84,7 @@ public class Animations
             try
             {
                 int delay = Integer.parseInt(split[1]);
-                miskAnimation = ResourcesContainer.getMiskAnimationSprites(split[0]);
+                miskAnimation = GraphicResources.getMiskAnimationSprites(split[0]);
                 
                 if(miskAnimation != null)
                 {
@@ -106,7 +106,7 @@ public class Animations
             {
                 int delay = Integer.parseInt(split[1]);
                 int repeat = Integer.parseInt(split[2]);
-                miskAnimation = ResourcesContainer.getMiskAnimationSprites(split[0]);
+                miskAnimation = GraphicResources.getMiskAnimationSprites(split[0]);
                 
                 if(miskAnimation != null)
                 {
@@ -131,7 +131,7 @@ public class Animations
     {
         ANIMATIONS.put("###BUG###", 
             new RepetableResetableAnimation(
-                ResourcesContainer.getMiskAnimationSprites("###BUG###"), 10, 3));
+                GraphicResources.getMiskAnimationSprites("###BUG###"), 10, 3));
         
         ANIMATIONS.put("#FIREBALL", 
             new DefaultResetableAnimation(
@@ -140,7 +140,7 @@ public class Animations
         
         ANIMATIONS.put("#HEAL", 
             new RainAnimation(
-                ResourcesContainer.getMiskAnimationSprites(
+                GraphicResources.getMiskAnimationSprites(
                     "heal drop"), 5, 5, 
                     GameConstants.STANDARD_ANIMATION_DELAY));
         

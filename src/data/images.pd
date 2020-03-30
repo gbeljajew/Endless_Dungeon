@@ -59,6 +59,9 @@
     <image name="graphic/skills.png" >
         <tile w="32" h="32" key="skills" />
     </image>
+    <image name="graphic/Village.png" >
+        <tile w="48" h="48" key="village_normal" />
+    </image>
     <image name="graphic/potions.png" >
         <tile w="18" h="25" >
             <icon index="0" key="hp potion" />
