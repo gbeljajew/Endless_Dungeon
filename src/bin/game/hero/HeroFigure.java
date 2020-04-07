@@ -180,7 +180,7 @@ public class HeroFigure implements Drawable, Updatable
     void setPosition(int x, int y)
     {
         this.x = x * TILE_WIDTH + TILE_WIDTH / 2;
-        this.y = y + TILE_HEIGHT + TILE_HEIGHT / 2;
+        this.y = y * TILE_HEIGHT + TILE_HEIGHT / 2;
     }
 
     

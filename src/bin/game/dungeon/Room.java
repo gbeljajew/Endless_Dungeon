@@ -20,4 +20,6 @@ public interface Room extends Drawable, Updatable
     public boolean isPassable(int x, int y);
 
     public CameraField getCameraField();
+
+    public void tap(int x, int y);
 }

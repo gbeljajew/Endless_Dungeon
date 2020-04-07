@@ -76,6 +76,12 @@ public class Dungeon implements Room
     {
         return this.room.getCameraField();
     }
+
+    @Override
+    public void tap(int x, int y)
+    {
+        this.room.tap(x, y);
+    }
     
 }
 // TODO implement methods
@@ -125,6 +131,12 @@ class DungeonRoom implements Room
         }
         
         return this.cameraField;
+    }
+
+    @Override
+    public void tap(int x, int y)
+    {
+        // TODO implement cristall touch
     }
     
 }

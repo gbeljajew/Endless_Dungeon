@@ -6,6 +6,7 @@
 
 package bin.game.hero;
 
+import bin.game.Game;
 import bin.game.Updatable;
 import bin.game.util.Direction;
 import bin.game.util.drawable.Drawable;
@@ -54,6 +55,7 @@ public class Hero implements Drawable, Updatable
     public void update()
     {
         this.figure.update();
+        Game.getCurrentRoom().tap(this.figure.getMapX(), this.figure.getMapY());
         
         // TODO touching cristall.
     }

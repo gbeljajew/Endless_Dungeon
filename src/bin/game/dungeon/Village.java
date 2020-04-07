@@ -9,15 +9,23 @@ import bin.game.Game;
 import bin.game.GameConstants;
 import static bin.game.GameConstants.MAP_SCREEN_HEIGHT;
 import static bin.game.GameConstants.MAP_SCREEN_WIDTH;
+import bin.game.GameLocale;
 import bin.game.resources.GameResources;
 import bin.game.resources.GraphicResources;
+import bin.game.util.container.Coordinates2D;
 import bin.game.util.container.CoordinatesContainer;
 import bin.game.util.container.CoordinatesSet;
 import bin.game.util.drawable.Animation;
 import bin.game.util.drawable.CameraField;
+import bin.game.util.drawable.Drawable;
 import bin.game.util.logger.MyLogger;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.Scanner;
 
@@ -29,7 +37,9 @@ public class Village implements Room
 {
 
     CoordinatesContainer<Tile> map = new CoordinatesSet<>();
+    CoordinatesContainer<TextMessage> text = new CoordinatesSet<>();
     private CameraField cameraField;
+    private TextMessage textMessage;
 
     public Village()
     {
@@ -58,6 +68,9 @@ public class Village implements Room
         }
 
         Game.getHero().draw(g, kameraOffsetX, kameraOffsetY);
+        
+        if(this.textMessage != null)
+            this.textMessage.draw(g, kameraOffsetX, kameraOffsetY);
     }
 
     @Override
@@ -106,7 +119,7 @@ public class Village implements Room
 
             if (line.startsWith("TEXT"))
             {
-                // TODO add text marker
+                this.text.add(new TextMessage(line));
             }
             else if (line.startsWith("SHOP"))
             {
@@ -225,4 +238,142 @@ public class Village implements Room
         return this.cameraField;
     }
 
+    @Override
+    public void tap(int x, int y)
+    {
+        // TODO enter shops is here
+        
+        this.textMessage = text.get(x, y);
+    }
+
+}
+
+class TextMessage implements Coordinates2D, Drawable
+{
+    private final static int LINE_PADDING = 5;
+    private final static int TEXT_PADDING = 5;
+    private static final Font FONT = new Font(Font.SERIF, Font.BOLD, 25);
+    
+    private final int x, y;
+    private final String key;
+    
+    
+
+    public TextMessage(String line)
+    {
+        String[] par;
+        
+        if(!line.startsWith("TEXT") || (par = line.split(";")).length < 3)
+        {
+            MyLogger.error("wrong String as parameter: " + line, new IllegalArgumentException());
+            throw new IllegalArgumentException("wrong String as parameter: " + line);
+        }
+        
+        this.key = par[1].trim();
+        
+        String[] coords = par[2].split(",");
+        
+        if(coords.length < 2)
+        {
+            MyLogger.error("wrong String as parameter: " + line, new IllegalArgumentException());
+            throw new IllegalArgumentException("wrong String as parameter: " + line);
+        }
+        
+        try
+        {
+        this.x = Integer.parseInt(coords[0]);
+        this.y = Integer.parseInt(coords[1]);
+        }
+        catch(NumberFormatException e)
+        {
+            MyLogger.error("wrong String as parameter: " + line, e);
+            throw new IllegalArgumentException("wrong String as parameter: " + line);
+        }
+    }
+    
+    
+
+    @Override
+    public int getX()
+    {
+        return x;
+    }
+
+    @Override
+    public int getY()
+    {
+        return y;
+    }
+
+    @Override
+    public void draw(Graphics2D g, int cameraOffsetX, int cameraOffsetY)
+    {
+        Font backFont = g.getFont();
+        g.setFont(FONT);
+        
+        
+        FontMetrics metrics = g.getFontMetrics();
+        
+        String[] lines = GameLocale.getString(key).split("\n");
+        
+        int lineHeight = (int) metrics.getStringBounds(lines[0], g).getHeight();
+        
+        
+        int textHeight = (int) (lineHeight * lines.length 
+                                + LINE_PADDING * (lines.length - 1)
+                                + TEXT_PADDING * 2);
+        
+        int textWidth = 0;
+        
+        for (String line : lines)
+        {
+            Rectangle2D w = metrics.getStringBounds(line, g);
+            
+            if(w.getWidth() > textWidth)
+                textWidth = (int) w.getWidth();
+        }
+        
+        textWidth += 2 * TEXT_PADDING;
+        
+        Color standardColor = g.getColor();
+        
+        g.setColor(Color.LIGHT_GRAY);
+        
+        int posY = MAP_SCREEN_HEIGHT / 4 - textHeight / 2;
+        
+        if(posY < TEXT_PADDING)
+            posY = TEXT_PADDING;
+        
+        g.fillRect((MAP_SCREEN_WIDTH - textWidth) / 2,
+                    posY, 
+                    textWidth, 
+                    textHeight);
+        
+        g.setColor(standardColor);
+        
+        posY += lineHeight;
+        
+        
+        int lineStep = lineHeight + LINE_PADDING;
+        
+        for (String line : lines)
+        {
+            double width = metrics.getStringBounds(line, g).getWidth();
+            
+            if(width > MAP_SCREEN_WIDTH)
+                MyLogger.debug("text to wide: " + GameLocale.getString(key) );
+            
+            int posX = (int) (MAP_SCREEN_WIDTH / 2 - width / 2);
+            
+            g.drawString(line, posX, posY);
+            
+            posY += lineStep;
+        }
+        
+        g.setFont(backFont);
+        
+    }
+
+    
+    
 }
