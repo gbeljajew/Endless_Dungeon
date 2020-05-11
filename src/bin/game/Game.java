@@ -19,6 +19,7 @@ import java.util.List;
  *
  * @author gbeljajew
  */
+@SuppressWarnings("Convert2Lambda")
 public class Game 
 {
     public static final Camera CAMERA = new Camera();
@@ -30,11 +31,13 @@ public class Game
     
     private static final List<Updatable> UPDATABLES = new ArrayList<>();
     
-    private final static Village village = new Village();
+    private final static Village VILLAGE = new Village();
     
     private static Dungeon dungeon = new Dungeon(1);
     
     private static Hero hero = new Hero(GameResources.getHeroClasses().get(0));
+    
+    private static boolean returnWing = true;
     
     static
     {
@@ -68,12 +71,15 @@ public class Game
     public static Room getCurrentRoom()
     {
         if(gameState == GameState.VILLAGE)
-            return village;
+            return VILLAGE;
         else
             return dungeon;
     }
     
-    
+    public static boolean haveReturnWing()
+    {
+        return Game.returnWing;
+    }
     
     
     
@@ -107,7 +113,9 @@ public class Game
     
     public static void startNewRun(int level)
     {
-        dungeon =new Dungeon(level);
+        System.out.println("enter dungeon");
+        
+        //dungeon =new Dungeon(level);
     }
     
     

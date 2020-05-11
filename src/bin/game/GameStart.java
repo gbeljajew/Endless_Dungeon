@@ -6,6 +6,7 @@
 
 package bin.game;
 
+import bin.game.dungeon.shop.ShopFactory;
 import bin.game.panels.ScreenControl;
 import bin.game.resources.GameResources;
 import bin.game.resources.GraphicResources;
@@ -18,9 +19,14 @@ public class GameStart
 {
     public static void main(String[] args)
     {
+        long t = System.currentTimeMillis();
+        
         GraphicResources.init();
         GameResources.init();
+        ShopFactory.init();
         
         ScreenControl.init();
+        
+        System.out.println("loaded in " + (System.currentTimeMillis() - t));
     }
 }

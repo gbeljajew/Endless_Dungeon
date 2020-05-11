@@ -21,5 +21,5 @@ public interface Room extends Drawable, Updatable
 
     public CameraField getCameraField();
 
-    public void tap(int x, int y);
+    public void touch(int x, int y);
 }

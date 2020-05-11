@@ -5,24 +5,11 @@
  */
 package bin.game.dungeon.shop;
 
-import java.awt.Image;
-import javax.swing.JPanel;
-
 /**
  *
  * @author gbeljajew
  */
-public interface Shop
+public enum ShopEnum
 {
-    JPanel getShopPanel();
-    
-    String getName();
-    
-    Image getShopOwner();
-    
-    void refresh();
-    
-    void beforeShop();
-    
-    void afterShop();
+    CHURCH, INN, WEAPON, SKILL, TRAINER, ALCHEMIST;
 }

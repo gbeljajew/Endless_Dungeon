@@ -8,6 +8,8 @@ package bin.game.hero;
 
 import bin.game.Game;
 import bin.game.Updatable;
+import bin.game.panels.ScreenControl;
+import bin.game.panels.ScreenEnum;
 import bin.game.util.Direction;
 import bin.game.util.drawable.Drawable;
 import java.awt.Graphics2D;
@@ -54,10 +56,13 @@ public class Hero implements Drawable, Updatable
     @Override
     public void update()
     {
-        this.figure.update();
-        Game.getCurrentRoom().tap(this.figure.getMapX(), this.figure.getMapY());
+        if(ScreenControl.getScreen() != ScreenEnum.MAP)
+            return;
         
-        // TODO touching cristall.
+        
+        this.figure.update();
+        Game.getCurrentRoom().touch(this.figure.getMapX(), this.figure.getMapY());
+        
     }
     
     public void setPosition(int x, int y)

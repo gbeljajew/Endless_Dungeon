@@ -10,7 +10,10 @@ import bin.game.GameConstants;
 import static bin.game.GameConstants.MAP_SCREEN_HEIGHT;
 import static bin.game.GameConstants.MAP_SCREEN_WIDTH;
 import bin.game.GameLocale;
-import bin.game.resources.GameResources;
+import bin.game.dungeon.cristall.Cristall;
+import bin.game.panels.ScreenControl;
+
+import bin.game.panels.ScreenEnum;
 import bin.game.resources.GraphicResources;
 import bin.game.util.container.Coordinates2D;
 import bin.game.util.container.CoordinatesContainer;
@@ -22,7 +25,6 @@ import bin.game.util.logger.MyLogger;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.geom.Rectangle2D;
@@ -38,8 +40,10 @@ public class Village implements Room
 
     CoordinatesContainer<Tile> map = new CoordinatesSet<>();
     CoordinatesContainer<TextMessage> text = new CoordinatesSet<>();
+    CoordinatesContainer<Cristall> doors = new CoordinatesSet<>();
     private CameraField cameraField;
     private TextMessage textMessage;
+    private Animation animation;
 
     public Village()
     {
@@ -71,11 +75,27 @@ public class Village implements Room
         
         if(this.textMessage != null)
             this.textMessage.draw(g, kameraOffsetX, kameraOffsetY);
+        
+        if(this.animation != null)
+        {
+            this.animation.draw(g, kameraOffsetX, kameraOffsetY);
+        }
     }
 
     @Override
     public void update()
     {
+        if(this.animation != null)
+        {
+            if(this.animation.isDone())
+            {
+                this.animation = null;
+            }
+            else
+            {
+                return;
+            }
+        }
 
         Game.getHero().update();
     }
@@ -123,7 +143,18 @@ public class Village implements Room
             }
             else if (line.startsWith("SHOP"))
             {
-                // TODO add shop marker
+                try
+                {
+                    this.doors.add(new DoorToShop(line));
+                }
+                catch(RuntimeException e)
+                {
+                    MyLogger.error("error while loading village map", e);
+                }
+            }
+            else if(line.startsWith("DUNGEON"))
+            {
+                doors.add(new DoorToDungeon(line));
             }
             else if (line.startsWith("#"))
             {
@@ -239,13 +270,129 @@ public class Village implements Room
     }
 
     @Override
-    public void tap(int x, int y)
+    public void touch(int x, int y)
     {
-        // TODO enter shops is here
+        
+        //System.out.println("[" + x + "," + y + "]");
         
         this.textMessage = text.get(x, y);
+        
+        Cristall door = doors.get(x, y);
+        
+        if(door != null)
+        {
+            this.animation = door.touch();
+        }
+        
     }
 
+    
+    
+    private class DoorToShop implements Cristall
+    {
+        private final int x,y;
+        private final ScreenEnum shopScreen;
+        private final int heroX, heroY;
+
+        public DoorToShop(int x, int y, ScreenEnum shopScreen, int heroX, int heroY)
+        {
+            this.x = x;
+            this.y = y;
+            this.shopScreen = shopScreen;
+            this.heroX = heroX;
+            this.heroY = heroY;
+        }
+
+        private DoorToShop(String line)
+        {
+            
+            if(!line.startsWith("SHOP"))
+                throw new IllegalArgumentException("unknown argument: " + line);
+            
+            String[] parts = line.split(";");
+            
+            if(parts.length < 4)
+                throw new IllegalArgumentException("not enough parts: " + line);
+            
+            this.shopScreen = ScreenEnum.valueOf(parts[1]);
+            
+            String[] doorPositions = parts[2].split(",");
+            
+            this.x = Integer.parseInt(doorPositions[0].trim());
+            this.y = Integer.parseInt(doorPositions[1].trim());
+            
+            String[] exitPositions = parts[3].split(",");
+            
+            this.heroX = Integer.parseInt(exitPositions[0].trim());
+            this.heroY = Integer.parseInt(exitPositions[1].trim());
+            
+        }
+        
+        
+
+        @Override
+        public int getX()
+        {
+            return x;
+        }
+
+        @Override
+        public int getY()
+        {
+            return y;
+        }
+
+        @Override
+        public Animation touch()
+        {
+            ScreenControl.switchScreen(shopScreen);
+            Game.getHero().setPosition(heroX, heroY);
+            
+            return null;
+        }
+        
+    }
+    
+    private class DoorToDungeon implements Cristall
+    {
+
+        private final int x;
+        private final int y;
+
+        
+
+        private DoorToDungeon(String line)
+        {
+            String[] parts = line.split(";");
+            
+            String[] doorPositions = parts[1].split(",");
+            
+            this.x = Integer.parseInt(doorPositions[0].trim());
+            this.y = Integer.parseInt(doorPositions[1].trim());
+        }
+        
+        @Override
+        public Animation touch()
+        {
+            Game.startNewRun(1);
+            
+            return null;
+        }
+
+        @Override
+        public int getX()
+        {
+            return x;
+        }
+
+        @Override
+        public int getY()
+        {
+            return y;
+        }
+        
+    }
+    
 }
 
 class TextMessage implements Coordinates2D, Drawable

@@ -18,6 +18,8 @@ import java.util.TimerTask;
 public class ScreenControl 
 {
     private static MainFrame mainFrame;
+    private static ScreenEnum currentScreen = ScreenEnum.MAP, 
+            lastScreen = ScreenEnum.MAP;
     
     public static void init()
     {
@@ -38,7 +40,22 @@ public class ScreenControl
     
     public static void switchScreen(ScreenEnum screen)
     {
+        lastScreen = currentScreen;
+        
         mainFrame.switchScreen(screen);
+        
+        currentScreen = screen;
+    }
+
+    static void getBack()
+    {
+        switchScreen(lastScreen);
+        lastScreen = currentScreen;
+    }
+
+    public static ScreenEnum getScreen()
+    {
+        return currentScreen;
     }
 
 }

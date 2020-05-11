@@ -29,13 +29,15 @@ public enum ScreenEnum
     /** use xp to upgrade your stats */
     TRAINER,
     /** highscore */
-    OBELISQUE,
+    OBELISK,
+    /** some buffs */
+    CHURCH,
     
     
     /** create new hero */
     NEW_HERO,
     /** look at hero stats and skills */
-    HERO_STATS,
+    SKILLS_AND_STATS,
     
     
     /**  */

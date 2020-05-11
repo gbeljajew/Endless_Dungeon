@@ -14,8 +14,16 @@ public class GameConstants
 {
     public static final int SCREEN_WIDTH = 800;
     public static final int SCREEN_HEIGHT = 600;
+    
     public static final int MAP_SCREEN_WIDTH = 576;
     public static final int MAP_SCREEN_HEIGHT = 576;
+    
+    public static final int HERO_PANEL_HEIGHT = 514;
+    public static final int HERO_PANEL_WIDTH = 188;
+    
+    public static final int BUTTON_PANEL_HEIGHT = 50;
+    public static final int BUTTON_PANEL_WIDTH = HERO_PANEL_WIDTH;
+    
     /** time between updates. <br>
      * FPS = 1000 / TIMER_PERIOD */
     public static final int TIMER_PERIOD = 20;
@@ -34,4 +42,6 @@ public class GameConstants
     public static final int HERO_SPRITE_HEIGTH = 64;
     public static final int HERO_FACE_WIDTH = 96;
     public static final int HERO_FACE_HEIGTH = 96;
+    
+   
 }

@@ -78,9 +78,9 @@ public class Dungeon implements Room
     }
 
     @Override
-    public void tap(int x, int y)
+    public void touch(int x, int y)
     {
-        this.room.tap(x, y);
+        this.room.touch(x, y);
     }
     
 }
@@ -134,7 +134,7 @@ class DungeonRoom implements Room
     }
 
     @Override
-    public void tap(int x, int y)
+    public void touch(int x, int y)
     {
         // TODO implement cristall touch
     }

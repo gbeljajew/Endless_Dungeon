@@ -7,9 +7,11 @@
 package bin.game.panels;
 
 import bin.game.GameConstants;
+import bin.game.dungeon.shop.ShopFactory;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.HeadlessException;
+import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -40,7 +42,7 @@ class MainFrame extends JFrame
         this.setResizable(false);
         this.setVisible(true);
         
-        this.switchScreen(ScreenEnum.INN);
+        this.switchScreen(ScreenEnum.SMITH);
     }
 
     void switchScreen(ScreenEnum screen)
@@ -51,6 +53,17 @@ class MainFrame extends JFrame
     private void addAllScreens()
     {
         this.addPanel(new MapScreen(), ScreenEnum.MAP);
+        this.addPanel(new OptionScreen(), ScreenEnum.OPTIONS);
+        this.addPanel(new SkillScreen(), ScreenEnum.SKILLS_AND_STATS);
+        this.addPanel(new ObeliskScreen(), ScreenEnum.OBELISK);
+        
+        for (Map.Entry<ScreenEnum, JPanel> entry : ShopFactory.getShopScreens().entrySet())
+        {
+            ScreenEnum key = entry.getKey();
+            JPanel value = entry.getValue();
+            this.addPanel(value, key);
+        }
+        
     }
 
     private void addPanel(JPanel panel, ScreenEnum screenKey)
