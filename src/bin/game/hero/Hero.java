@@ -69,4 +69,14 @@ public class Hero implements Drawable, Updatable
     {
         this.figure.setPosition(x,y);
     }
+
+    public int getMapX()
+    {
+        return this.figure.getMapX();
+    }
+
+    public int getMapY()
+    {
+        return this.figure.getMapY();
+    }
 }

@@ -132,17 +132,17 @@ public class FloorType implements Randomizable
     }
     
     
-    public Image getStairsImage()
+    public Image getStairsTileSprite()
     {
         return this.stairs;
     }
 
-    public Image getBaseWallTile()
+    public Image getBaseWallTileSprite()
     {
         return this.wall[0];
     }
 
-    public Image getWallTile()
+    public Image getWallTileSprite()
     {
         if (Math.random() < 0.9)
         {
@@ -154,7 +154,7 @@ public class FloorType implements Randomizable
         return this.wall[pos];
     }
 
-    public Image getFloorTile()
+    public Image getFloorTileSprite()
     {
         if (Math.random() < 0.9)
         {
@@ -166,7 +166,7 @@ public class FloorType implements Randomizable
         return this.floor[pos];
     }
 
-    public Image getClutterImage()
+    public Image getClutterOverlaySprite()
     {
         if (this.cluter.length == 0)
         {
@@ -187,7 +187,7 @@ public class FloorType implements Randomizable
         return background;
     }
 
-    public String getMonsterKey()
+    public String getRandomMonsterKey()
     {
         
         RandomSet<MonsterKey> rs = new RandomSet<>();
@@ -209,7 +209,7 @@ public class FloorType implements Randomizable
         return "SLIME";
     }
 
-    public Image getBaseFloorTile()
+    public Image getBaseFloorTileSprite()
     {
         return this.floor[0];
     }

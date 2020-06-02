@@ -131,7 +131,7 @@ public class Animations
     {
         ANIMATIONS.put("###BUG###", 
             new RepetableResetableAnimation(
-                GraphicResources.getMiskAnimationSprites("###BUG###"), 10, 3));
+                GraphicResources.getMiskAnimationSprites("core.###BUG###"), 10, 3));
         
         ANIMATIONS.put("#FIREBALL", 
             new DefaultResetableAnimation(
@@ -141,7 +141,7 @@ public class Animations
         ANIMATIONS.put("#HEAL", 
             new RainAnimation(
                 GraphicResources.getMiskAnimationSprites(
-                    "heal drop"), 5, 5, 
+                    "core.heal_drop"), 5, 5, 
                     GameConstants.STANDARD_ANIMATION_DELAY));
         
         loadFrameAnimations();

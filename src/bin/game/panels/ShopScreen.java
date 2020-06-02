@@ -67,15 +67,15 @@ public class ShopScreen extends JPanel
         {
             
             this.add(new Button(4, 4, 57, 42, 
-                    GraphicResources.getMiskImage("button skills"), 
+                    GraphicResources.getMiskImage("core.button_skills"), 
                     () -> showSkills(), this));
             
             this.add(new Button(65, 4, 57, 42, 
-                    GraphicResources.getMiskImage("button options"), 
+                    GraphicResources.getMiskImage("core.button_options"), 
                     () -> gotoOptionsScreen(), this));
             
             this.add(new Button(126, 4, 58, 42, 
-                    GraphicResources.getMiskImage("button go outside"), 
+                    GraphicResources.getMiskImage("core.button_go_outside"), 
                     () -> exitShop(), this));
         }
         

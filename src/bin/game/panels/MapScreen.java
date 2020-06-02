@@ -297,17 +297,17 @@ public class MapScreen extends JPanel
         {
             
             this.add(new Button(4, 4, 57, 42, 
-                    GraphicResources.getMiskImage("button skills"), 
+                    GraphicResources.getMiskImage("core.button_skills"), 
                     () -> showSkills(), this));
             
             this.add(new Button(65, 4, 57, 42, 
-                    GraphicResources.getMiskImage("button options"), 
+                    GraphicResources.getMiskImage("core.button_options"), 
                     () -> gotoOptionsScreen(), this));
             
             this.add(new ConditionalButton(126, 4, 58, 42, 
-                    GraphicResources.getMiskImage("button return wing"), 
+                    GraphicResources.getMiskImage("core.button_return_wing"), 
                     () -> retreat(), this, 
-                    GraphicResources.getMiskImage("button return wing disabled"),
+                    GraphicResources.getMiskImage("core.button_return_wing_disabled"),
                     () -> Game.haveReturnWing() ));
         }
         

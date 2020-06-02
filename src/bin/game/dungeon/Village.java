@@ -10,7 +10,6 @@ import bin.game.GameConstants;
 import static bin.game.GameConstants.MAP_SCREEN_HEIGHT;
 import static bin.game.GameConstants.MAP_SCREEN_WIDTH;
 import bin.game.GameLocale;
-import bin.game.dungeon.cristall.Cristall;
 import bin.game.panels.ScreenControl;
 
 import bin.game.panels.ScreenEnum;
@@ -30,6 +29,7 @@ import java.awt.Image;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.Scanner;
+import bin.game.dungeon.cristall.Touchable;
 
 /**
  *
@@ -40,7 +40,7 @@ public class Village implements Room
 
     CoordinatesContainer<Tile> map = new CoordinatesSet<>();
     CoordinatesContainer<TextMessage> text = new CoordinatesSet<>();
-    CoordinatesContainer<Cristall> doors = new CoordinatesSet<>();
+    CoordinatesContainer<Touchable> doors = new CoordinatesSet<>();
     private CameraField cameraField;
     private TextMessage textMessage;
     private Animation animation;
@@ -277,7 +277,7 @@ public class Village implements Room
         
         this.textMessage = text.get(x, y);
         
-        Cristall door = doors.get(x, y);
+        Touchable door = doors.get(x, y);
         
         if(door != null)
         {
@@ -288,7 +288,7 @@ public class Village implements Room
 
     
     
-    private class DoorToShop implements Cristall
+    private class DoorToShop implements Touchable
     {
         private final int x,y;
         private final ScreenEnum shopScreen;
@@ -353,7 +353,7 @@ public class Village implements Room
         
     }
     
-    private class DoorToDungeon implements Cristall
+    private class DoorToDungeon implements Touchable
     {
 
         private final int x;

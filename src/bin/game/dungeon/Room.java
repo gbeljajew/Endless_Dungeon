@@ -11,6 +11,8 @@ import bin.game.util.drawable.Drawable;
  */
 public interface Room extends Drawable, Updatable
 {
+
+    
     /**
      * 
      * @param x

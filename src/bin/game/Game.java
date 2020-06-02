@@ -33,8 +33,9 @@ public class Game
     
     private final static Village VILLAGE = new Village();
     
-    private static Dungeon dungeon = new Dungeon(1);
+    private static Dungeon dungeon;
     
+    // TODO replace with chosing hero in INN 
     private static Hero hero = new Hero(GameResources.getHeroClasses().get(0));
     
     private static boolean returnWing = true;
@@ -113,9 +114,10 @@ public class Game
     
     public static void startNewRun(int level)
     {
-        System.out.println("enter dungeon");
+        //System.out.println("enter dungeon");
         
-        //dungeon =new Dungeon(level);
+        dungeon = new Dungeon(level);
+        gameState = GameState.FLOOR;
     }
     
     

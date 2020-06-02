@@ -7,127 +7,130 @@
     <image name="graphic/Alchemist.png" key="core.shop.owner.alchemist" />
     <image name="graphic/Cleric.png" key="core.shop.owner.church" />
     <image name="graphic/BOOM.png" >
-        <animation w="196" h="196" key="boom" />
+        <animation w="196" h="196" key="core.boom" />
     </image>
     <image name="graphic/heart.png" >
         <tile w="20" h="16" >
-            <icon index="0" key="HP heart" />
-            <icon index="1" key="mp heart" />
-            <icon index="2" key="exp book" />
-            <icon index="3" key="Sword icon" />
-            <icon index="4" key="shild icon" />
-            <icon index="5" key="wand icon" />
-            <icon index="6" key="gold icon" />
-            <icon index="7" key="speed icon" />
-            <icon index="8" key="clock icon" />
+            <icon index="0" key="core.hp_heart" />
+            <icon index="1" key="core.mp_heart" />
+            <icon index="2" key="core.exp_book" />
+            <icon index="3" key="core.sword_icon" />
+            <icon index="4" key="core.shild_icon" />
+            <icon index="5" key="core.wand_icon" />
+            <icon index="6" key="core.gold_icon" />
+            <icon index="7" key="core.speed_icon" />
+            <icon index="8" key="core.clock_icon" />
         </tile>
     </image>
     <image name="graphic/Animations_X3.png" >
         <tile w="288" h="96" >
-            <animation index="0" w="96" h="96" key="bite" />
-            <animation index="1" w="96" h="96" key="arrow" />
-            <animation index="2" w="96" h="96" key="blood" />
-            <animation index="3" w="96" h="96" key="axe1" />
-            <animation index="4" w="96" h="96" key="axe2" />
-            <animation index="5" w="96" h="96" key="heal drop" />
-            <animation index="6" w="96" h="96" key="boom1" />
-            <animation index="7" w="96" h="96" key="boom2" />
-            <animation index="8" w="96" h="96" key="claw" />
-            <animation index="9" w="96" h="96" key="cut1" />
-            <animation index="10" w="96" h="96" key="cut2" />
-            <animation index="11" w="96" h="96" key="cut3" />
-            <animation index="12" w="96" h="96" key="cut4" />
-            <animation index="13" w="96" h="96" key="cut5" />
-            <animation index="14" w="96" h="96" key="cut6" />
-            <animation index="15" w="96" h="96" key="cut7" />
-            <animation index="16" w="96" h="96" key="cut8" />
-            <animation index="17" w="96" h="96" key="cut9" />
-            <animation index="18" w="96" h="96" key="whip1" />
-            <animation index="19" w="96" h="96" key="whip2" />
+            <animation index="0" w="96" h="96" key="core.bite" />
+            <animation index="1" w="96" h="96" key="core.arrow" />
+            <animation index="2" w="96" h="96" key="core.blood" />
+            <animation index="3" w="96" h="96" key="core.axe1" />
+            <animation index="4" w="96" h="96" key="core.axe2" />
+            <animation index="5" w="96" h="96" key="core.heal_drop" />
+            <animation index="6" w="96" h="96" key="core.boom1" />
+            <animation index="7" w="96" h="96" key="core.boom2" />
+            <animation index="8" w="96" h="96" key="core.claw" />
+            <animation index="9" w="96" h="96" key="core.cut1" />
+            <animation index="10" w="96" h="96" key="core.cut2" />
+            <animation index="11" w="96" h="96" key="core.cut3" />
+            <animation index="12" w="96" h="96" key="core.cut4" />
+            <animation index="13" w="96" h="96" key="core.cut5" />
+            <animation index="14" w="96" h="96" key="core.cut6" />
+            <animation index="15" w="96" h="96" key="core.cut7" />
+            <animation index="16" w="96" h="96" key="core.cut8" />
+            <animation index="17" w="96" h="96" key="core.cut9" />
+            <animation index="18" w="96" h="96" key="core.whip1" />
+            <animation index="19" w="96" h="96" key="core.whip2" />
         </tile>
     </image>
     <image name="graphic/Animations_X3_Left.png" >
         <tile w="288" h="96" >
-            <animation index="1" w="96" h="96" key="bite le" />
-            <animation index="2" w="96" h="96" key="axe1 left" />
+            <animation index="1" w="96" h="96" key="core.bite_le" />
+            <animation index="2" w="96" h="96" key="core.axe1_left" />
             
-            <animation index="8" w="96" h="96" key="cut1 left" />
-            <animation index="9" w="96" h="96" key="claw left" />
-            <animation index="11" w="96" h="96" key="cut2 left" />
-            <animation index="10" w="96" h="96" key="cut3 left" />
-            <animation index="13" w="96" h="96" key="cut4 left" />
-            <animation index="12" w="96" h="96" key="cut5 left" />
-            <animation index="14" w="96" h="96" key="cut7 left" />
-            <animation index="17" w="96" h="96" key="cut8 left" />
-            <animation index="19" w="96" h="96" key="whip1 left" />
+            <animation index="8" w="96" h="96" key="core.cut1_left" />
+            <animation index="9" w="96" h="96" key="core.claw_left" />
+            <animation index="11" w="96" h="96" key="core.cut2_left" />
+            <animation index="10" w="96" h="96" key="core.cut3_left" />
+            <animation index="13" w="96" h="96" key="core.cut4_left" />
+            <animation index="12" w="96" h="96" key="core.cut5_left" />
+            <animation index="14" w="96" h="96" key="core.cut7_left" />
+            <animation index="17" w="96" h="96" key="core.cut8_left" />
+            <animation index="19" w="96" h="96" key="core.whip1_left" />
         </tile>
     </image>
     <image name="graphic/skills.png" >
-        <tile w="32" h="32" key="skills" />
+        <tile w="32" h="32" key="core.skills" />
+    </image>
+    <image name="graphic/cristall.png" >
+        <tile w="32" h="64" key="core.cristall" />
     </image>
     <image name="graphic/Village.png" >
-        <tile w="48" h="48" key="village_normal" />
+        <tile w="48" h="48" key="core.village_normal" />
     </image>
     <image name="graphic/potions.png" >
         <tile w="18" h="25" >
-            <icon index="0" key="hp potion" />
-            <icon index="1" key="mp potion" />
-            <icon index="2" key="green potion" />
-            <icon index="3" key="gold potion" />
+            <icon index="0" key="core.hp_potion" />
+            <icon index="1" key="core.mp_potion" />
+            <icon index="2" key="core.green_potion" />
+            <icon index="3" key="core.gold_potion" />
         </tile>
     </image>
-    <image name="graphic/plus.png" key="lvlup plus" />
-    <image name="graphic/Succubus.png" key="succub" />
+    <image name="graphic/plus.png" key="core.lvlup_plus" />
+    <image name="graphic/Succubus.png" key="core.succub" />
 
 <!-- MONSTERS -->
 
-    <image name="graphic/Bat.png" key="monster bat" />
-    <image name="graphic/Skeleton.png" key="monster skeleton" />
-    <image name="graphic/Bee.png" key="monster bee" />
-    <image name="graphic/Slime.png" key="monster slime" />
-    <image name="graphic/Snake.png" key="monster snake" />
-    <image name="graphic/Spider.png" key="monster spider" />
-    <image name="graphic/Wolf.png" key="monster wolf" />
-    <image name="graphic/Imp.png" key="monster imp" />
-    <image name="graphic/Troll.png" key="monster troll" />
+    <image name="graphic/Bat.png" key="core.monster_bat" />
+    <image name="graphic/Skeleton.png" key="core.monster_skeleton" />
+    <image name="graphic/Bee.png" key="core.monster_bee" />
+    <image name="graphic/Slime.png" key="core.monster_slime" />
+    <image name="graphic/Snake.png" key="core.monster_snake" />
+    <image name="graphic/Spider.png" key="core.monster_spider" />
+    <image name="graphic/Wolf.png" key="core.monster_wolf" />
+    <image name="graphic/Imp.png" key="core.monster_imp" />
+    <image name="graphic/Troll.png" key="core.monster_troll" />
 
 
-    <image name="graphic/CaveBack.bmp" key="background cave" />
+    <image name="graphic/CaveBack.bmp" key="core.background_cave" />
 
     <image name="graphic/buttons.png" >
         <tile w="32" h="32" >
-            <icon index="0" key="button skills" />
-            <icon index="1" key="button options" />
-            <icon index="2" key="button return wing" />
-            <icon index="3" key="button return wing disabled" />
-            <icon index="4" key="button go outside" />
-            <icon index="5" key="button go outside disabled" />
-            <icon index="6" key="button new hero" />
+            <icon index="0" key="core.button_skills" />
+            <icon index="1" key="core.button_options" />
+            <icon index="2" key="core.button_return_wing" />
+            <icon index="3" key="core.button_return_wing_disabled" />
+            <icon index="4" key="core.button_go_outside" />
+            <icon index="5" key="core.button_go_outside_disabled" />
+            <icon index="6" key="core.button_new_hero" />
         </tile>
     </image>
     <image name="graphic/BUG.PNG" >
-        <animation w="100" h="100" key="###BUG###" />
+        <animation w="100" h="100" key="core.###BUG###" />
     </image>
     <image name="graphic/fire1.png" >
-        <animation w="96" h="96" key="fire1" />
+        <animation w="96" h="96" key="core.fire1" />
     </image>
     <image name="graphic/fire2.png" >
-        <animation w="96" h="96" key="fire2" />
+        <animation w="96" h="96" key="core.fire2" />
     </image>
     <image name="graphic/fire3.png" >
-        <animation w="96" h="96" key="fire3" />
+        <animation w="96" h="96" key="core.fire3" />
     </image>
     <image name="graphic/fire4.png" >
-        <animation w="96" h="96" key="fire4" />
+        <animation w="96" h="96" key="core.fire4" />
     </image>
     
     <image name="graphic/throwing.png" >
-        <tile w="16" h="16" key="throwing weapons" />
+        <tile w="16" h="16" key="core.throwing_weapons" />
     </image>
     <image name="graphic/Chars.png" >
-        <tile w="144" h="256" key="chars_tiles" />
+        <tile w="144" h="256" key="core.chars_tiles" />
     </image>
     <image name="graphic/Faces.bmp" >
-        <tile w="96" h="96" key="faces_tiles" />
+        <tile w="96" h="96" key="core.faces_tiles" />
     </image>
 </root>

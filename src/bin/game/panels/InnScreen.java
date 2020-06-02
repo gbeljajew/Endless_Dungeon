@@ -69,21 +69,21 @@ public class InnScreen extends JPanel
         {
             
             this.add(new Button(4, 4, 41, 42, 
-                    GraphicResources.getMiskImage("button skills"), 
+                    GraphicResources.getMiskImage("core.button_skills"), 
                     () -> showSkills(), this));
             
             this.add(new Button(50, 4, 41, 42, 
-                    GraphicResources.getMiskImage("button options"), 
+                    GraphicResources.getMiskImage("core.button_options"), 
                     () -> gotoOptionsScreen(), this));
             
             this.add(new Button(96, 4, 41, 42, 
-                    GraphicResources.getMiskImage("button new hero"), 
+                    GraphicResources.getMiskImage("core.button_new_hero"), 
                     () -> exitShop(), this));
             
             this.add(new ConditionalButton(142, 4, 41, 42, 
-                    GraphicResources.getMiskImage("button go outside"), 
+                    GraphicResources.getMiskImage("core.button_go_outside"), 
                     () -> exitShop(), this, 
-                    GraphicResources.getMiskImage("button go outside disabled"),
+                    GraphicResources.getMiskImage("core.button_go_outside_disabled"),
                     () -> Game.getHero() != null));
         }
         

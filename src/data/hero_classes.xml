@@ -4,9 +4,9 @@
           bonusperlvl="1" 
           expperlvl="100" 
           figureindex="0" 
-          figurekey="chars_tiles" 
+          figurekey="core.chars_tiles" 
           faceindex="0" 
-          facekey="faces_tiles" 
+          facekey="core.faces_tiles" 
           skill_chance="0.1" >
         <stats>
             <STR sv="5" rnd="1"/>

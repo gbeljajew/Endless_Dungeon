@@ -5,13 +5,14 @@
  */
 package bin.game.dungeon.cristall;
 
-import bin.game.util.drawable.Drawable;
+import bin.game.util.container.Coordinates2D;
+import bin.game.util.drawable.Animation;
 
 /**
  *
  * @author gbeljajew
  */
-public interface Cristall extends Touchable, Drawable
+public interface Touchable extends Coordinates2D
 {
-    
+    Animation touch();
 }

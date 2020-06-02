@@ -36,6 +36,9 @@ public class GameConstants
     /** height of a floor tile */
     public static final int TILE_HEIGHT = 48;
     
+    public static final int MIN_ROOM_SIZE = 11;
+    public static final int MAX_ROOM_SIZE = 15;
+    
     public static final int HERO_TILESET_WIDTH = 144;
     public static final int HERO_TILESET_HEIGT = 256;
     public static final int HERO_SPRITE_WIDTH = 48;
@@ -43,5 +46,15 @@ public class GameConstants
     public static final int HERO_FACE_WIDTH = 96;
     public static final int HERO_FACE_HEIGTH = 96;
     
+   public static int getMinRoomsOnFloor()
+   {
+       // TODO make it based on floor
+       return 5;
+   }
    
+   public static int getMaxRoomsOnFloor()
+   {
+       // TODO make it based on floor
+       return 10;
+   }
 }

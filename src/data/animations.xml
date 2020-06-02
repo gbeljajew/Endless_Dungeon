@@ -16,9 +16,9 @@
     </animation>
     -->
     
-    <animation key="#SLASH">
+    <animation key="core.slash">
         <images>
-            <image key="cut4" type="ANIMATION" />
+            <image key="core.cut4" type="ANIMATION" />
         </images>
         <frames>
             <frame index="0" dx="48" dy="-48" />
@@ -29,9 +29,9 @@
         </frames>
     </animation>
     
-    <animation key="slash trtld">
+    <animation key="core.slash_trtld">
         <images>
-            <image key="cut4" type="ANIMATION" />
+            <image key="core.cut4" type="ANIMATION" />
         </images>
         <frames>
             <frame index="0" dx="48" dy="-48" />
@@ -42,9 +42,9 @@
         </frames>
     </animation>
     
-    <animation key="slash rtl">
+    <animation key="core.slash_rtl">
         <images>
-            <image key="cut5" type="ANIMATION" />
+            <image key="core.cut5" type="ANIMATION" />
         </images>
         <frames>
             <frame index="0" dx="48" dy="0" />
@@ -55,9 +55,9 @@
         </frames>
     </animation>
     
-    <animation key="slash td">
+    <animation key="core.slash_td">
         <images>
-            <image key="cut6" type="ANIMATION" />
+            <image key="core.cut6" type="ANIMATION" />
         </images>
         <frames>
             <frame index="0" dx="0" dy="-48" />
@@ -68,9 +68,9 @@
         </frames>
     </animation>
     
-    <animation key="slash tltrd">
+    <animation key="core.slash_tltrd">
         <images>
-            <image key="cut4 left" type="ANIMATION" />
+            <image key="core.cut4_left" type="ANIMATION" />
         </images>
         <frames>
             <frame index="0" dx="-48" dy="-48" />
@@ -81,9 +81,9 @@
         </frames>
     </animation>
     
-    <animation key="slash ltr">
+    <animation key="core.slash_ltr">
         <images>
-            <image key="cut5 left" type="ANIMATION" />
+            <image key="core.cut5_left" type="ANIMATION" />
         </images>
         <frames>
             <frame index="0" dx="-48" dy="0" />
