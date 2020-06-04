@@ -116,11 +116,14 @@ class DungeonRoom implements Room
     private final int height;
     
     private SwichableTile exit;
+    private Animation animation;
+    private Direction exitDirection;
     
     public DungeonRoom(FloorType floorType, Direction exitDirection, Direction entryDirection, Floor floor)
     {
         this.floorType = floorType;
         this.floor = floor;
+        this.exitDirection = exitDirection;
         
         this.width = Utils.generateRandomInt(GameConstants.MIN_ROOM_SIZE, GameConstants.MAX_ROOM_SIZE);
         this.height = Utils.generateRandomInt(GameConstants.MIN_ROOM_SIZE, GameConstants.MAX_ROOM_SIZE);
@@ -129,7 +132,8 @@ class DungeonRoom implements Room
         
         this.generateMap(exitDirection);
         
-        
+        // entry animation
+        this.animation = RoomSwitchAnimationFactory.getEntryAnimation(entryDirection);
     }
     
     @Override
@@ -153,18 +157,32 @@ class DungeonRoom implements Room
             tile.draw(g, kameraOffsetX, kameraOffsetY);
         }
         
+        // TODO make sure the hero is under cristalls that are more south to him
+        // and over cristalls, thet are north to him.
         Game.getHero().draw(g, kameraOffsetX, kameraOffsetY);
         
         for (Cristall cristall : cristalls)
         {
             cristall.draw(g, kameraOffsetX, kameraOffsetY);
         }
+        
+        if(this.animation != null)
+            this.animation.draw(g, 0, 0);
     }
 
     @Override
     public void update()
     {
         // TODO implement.
+        
+        if(this.animation != null)
+        {
+            if(animation.isDone())
+                this.animation = null;
+            else
+                return;
+        }
+        
         
         Game.getHero().update();
     }
@@ -194,7 +212,9 @@ class DungeonRoom implements Room
     {
         if(this.exit.wasSwiched() && this.exit.getX() == x && y == this.exit.getY())
         {
-            this.floor.nextRoom();
+            
+            // TODO exit animation
+            this.animation = RoomSwitchAnimationFactory.getExitAnimation(this.exitDirection, floor);
             return;
         }
         
@@ -202,7 +222,7 @@ class DungeonRoom implements Room
         Touchable cristall = this.cristalls.get(x, y);
         
         if(cristall != null)
-            cristall.touch();
+            this.animation = cristall.touch();
     }
 
     
