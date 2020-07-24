@@ -35,6 +35,8 @@ public class GraphicResources
 
     private static final Map<String, BufferedImage[]> MISK_TILESET = new HashMap<>();
     
+    private static final Map<String, BufferedImage> FIGURES = new HashMap<>();
+    
     private static boolean done = false;
 
     
@@ -62,6 +64,23 @@ public class GraphicResources
         return tiles;
     }
 
+    /**
+     * 
+     * @param key
+     * @return 
+     */
+    public static BufferedImage getFigur( String key )
+    {
+        BufferedImage figures = FIGURES.get( key );
+        
+        if(figures == null)
+        {
+            MyLogger.debug("Figure was requested with unknown key: " + key);
+        }
+        
+        return figures;
+    }
+    
     /**
      * get an image.
      *
@@ -223,10 +242,26 @@ public class GraphicResources
                 int index = Integer.parseInt( e1.getAttribute( "index" ) );
                 String k1 = e1.getAttribute( "key" );
 
-            if( !k1.isEmpty() && w1 > 0 && h1 > 0 )
-            {
-                MISK_ANIMATIONS.put( k1, Glob.getTiles( tiles[index], w1, h1 ) );
+                if( !k1.isEmpty() && w1 > 0 && h1 > 0 )
+                {
+                    MISK_ANIMATIONS.put( k1, Glob.getTiles( tiles[index], w1, h1 ) );
+                }
             }
+            
+            NodeList figureNodes = e.getElementsByTagName( "figure" );
+
+            for( int j = 0; j < figureNodes.getLength(); j++ )
+            {
+                Node item1 = figureNodes.item( j );
+                Element e1 = ( Element )item1;
+
+                int index = Integer.parseInt( e1.getAttribute( "index" ) );
+                String ki = e1.getAttribute( "key" );
+
+                if( !ki.isEmpty() )
+                {
+                    FIGURES.put( ki, tiles[ index ] );
+                }
             }
         }
 

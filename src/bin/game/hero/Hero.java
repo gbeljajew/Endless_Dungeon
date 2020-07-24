@@ -12,13 +12,14 @@ import bin.game.panels.ScreenControl;
 import bin.game.panels.ScreenEnum;
 import bin.game.util.Direction;
 import bin.game.util.drawable.Drawable;
+import bin.game.util.drawable.OverlappingDrawable;
 import java.awt.Graphics2D;
 
 /**
  *
  * @author gbeljajew
  */
-public class Hero implements Drawable, Updatable
+public class Hero implements OverlappingDrawable, Updatable
 {
     private final HeroFigure figure;
     
@@ -61,6 +62,9 @@ public class Hero implements Drawable, Updatable
         
         
         this.figure.update();
+        
+        this.figure.updateCameraPosition();
+        
         Game.getCurrentRoom().touch(this.figure.getMapX(), this.figure.getMapY());
         
     }
@@ -78,5 +82,17 @@ public class Hero implements Drawable, Updatable
     public int getMapY()
     {
         return this.figure.getMapY();
+    }
+
+    @Override
+    public int getPicksX()
+    {
+        return this.figure.getPicksX();
+    }
+
+    @Override
+    public int getPicksY()
+    {
+        return this.figure.getPicksY();
     }
 }

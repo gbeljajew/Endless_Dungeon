@@ -38,6 +38,9 @@ public class CoordinatesSet<T extends Coordinates2D> implements CoordinatesConta
     @Override
     public boolean add(T item)
     {
+        if(item == null)    // there is no reason to add null.
+            return false;
+        
         T old = this.get(item.getX(), item.getY());
 
         if (old == null)

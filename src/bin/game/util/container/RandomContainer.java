@@ -48,7 +48,7 @@ public interface RandomContainer <T extends Randomizable> extends Iterable<T>
     /**
      * get one of contained items random.
      * item will stay in container.
-     * @return random T object.
+     * @return random T object. may return null if there are no items to chose from.
      * @throws ArrayIndexOutOfBoundsException if you try to get an item when container is empty
      */
     public T get() throws ArrayIndexOutOfBoundsException;

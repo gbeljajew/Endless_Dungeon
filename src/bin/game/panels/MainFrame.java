@@ -42,7 +42,7 @@ class MainFrame extends JFrame
         this.setResizable(false);
         this.setVisible(true);
         
-        this.switchScreen(ScreenEnum.SMITH);
+        this.switchScreen(ScreenEnum.INN);
     }
 
     void switchScreen(ScreenEnum screen)

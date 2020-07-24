@@ -1,9 +1,19 @@
 // this is comment. line which starts with // will be ignored. do not use it inside other lines.
-// # key // key for tileset. should stand before map tile data.
+// FILE filename // contains filename for logging.
+// TILESET;key // key for tileset. should stand before map tile data.
 // TEXT;key;x,y // a text will be shown, if hero stands on tile (x,y)
 // SHOP;key;x,y;exitX,exitY // a shop window will open if hero enters tile(x,y). 
 // after exit this shop window hero will be teleported to position (exitX,exitY).
-// DUNGEON;x,y  // go to dungeon
+// DUNGEON;x,y  // go to dungeon from this tile.
+// START;x,y    // position where hero starts when entering this map
+// CHANCE chance    // (double) for maps, that will appear in dungeon. chance is chance that this map will be shown.
+// optional. default 1.0. for maps, that appear in dungeon it should be > 0.
+// NPC;figure.key;x,y;stepDelay,stepWidth;text.key.1:chance,text.key.2:chance // place npc at position x,y
+// figure.key = figure for this npc. text.key = key for text, that will show if hero is close enough to npc.
+// chance = chance for this text to appear.
+// stedDelay number of frames between two step phases. stepWidth how far NPC will move with every step phase
+// NPC;figure.key;startX,startY,minX,minY,maxX,maxY;stepDelay,stepWidth;text.key.1:chance,text.key.2:chance
+// npc will only move in (minX,minY)(maxX,maxY) area. 
 // 
 // a line represents a row on map. each tile is separated by ';'
 // each information is separated by ',' 
@@ -77,8 +87,9 @@
 // 64 obelisk bottom middle overlay
 // 65 obelisk bottom right overlay
 
+FILE village.map
 
-# core.village_normal
+TILESET;core.village_normal
 
 31,0,49;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,56;31,0,57;31,0,58;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,50;31,0,51
 31,0,52;31     ;31,0,28;31,0,28;31,0,28;31,0,42;31,0,28;31,0,28;31,0,28;31     ;31,0,59;31,0,60;31,0,61;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31     ;31,0,52
@@ -134,3 +145,17 @@ SHOP;OBELISK;11,3;11,4
 SHOP;OBELISK;12,3;11,4
 
 DUNGEON;11,26
+START;11,9
+// this one is special and will be only used when you exit INN.
+INN;16,8
+
+NPC;core.figures.girl;11,11,9,6,13,10;8,2;core.npc.text.chicken:1,core.npc.text.swimming:0.5,core.npc.text.nice.day:1
+
+NPC;core.figures.granpa;17,20;0,0;core.npc.text.cat:1,core.npc.text.fanservice1:1,core.npc.text.welcome:1
+
+NPC;core.figures.granma;11,9;0,0;core.npc.text.gossip:1,core.npc.text.gatcha:1,core.npc.text.skillshop:1
+
+NPC;core.figures.cat;11,20;5,3;
+
+
+

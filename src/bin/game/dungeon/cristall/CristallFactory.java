@@ -104,4 +104,16 @@ class CristallDefImpl implements Cristall
 
     }
 
+    @Override
+    public int getPicksX()
+    {
+        return TILE_WIDTH * x + TILE_WIDTH / 2;
+    }
+
+    @Override
+    public int getPicksY()
+    {
+        return TILE_HEIGHT * y + TILE_HEIGHT / 2;
+    }
+
 }

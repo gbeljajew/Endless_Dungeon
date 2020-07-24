@@ -3,10 +3,9 @@
           statperlvl="4" 
           bonusperlvl="1" 
           expperlvl="100" 
-          figureindex="0" 
-          figurekey="core.chars_tiles" 
+          figurekey="core.figures.adveturer.m" 
           faceindex="0" 
-          facekey="core.faces_tiles" 
+          facekey="core.face.adveturer.m" 
           skill_chance="0.1" >
         <stats>
             <STR sv="5" rnd="1"/>

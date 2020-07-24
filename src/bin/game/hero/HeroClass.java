@@ -65,14 +65,12 @@ public class HeroClass
         
         this.expPerLvl = Integer.parseInt(el.getAttribute("expperlvl"));
         
-        int figureIndex = Integer.parseInt(el.getAttribute("figureindex"));
+        
         String figurekey = el.getAttribute("figurekey");
         
         
-        tiles = GraphicResources.getMiskTileSet(figurekey)[figureIndex];
+        this.tiles = GraphicResources.getFigur(figurekey);
         
-        
-        int faceIndex = Integer.parseInt(el.getAttribute("faceindex"));
         String facekey = el.getAttribute("facekey");
         
         String cm = el.getAttribute("critmod");
@@ -87,7 +85,7 @@ public class HeroClass
                             "yes".equalsIgnoreCase( cgc);
         
         
-        this.face = GraphicResources.getMiskTileSet(facekey)[faceIndex];
+        this.face = GraphicResources.getMiskImage(facekey);
         
         // ----- Stats ---------------------------------------------------
         

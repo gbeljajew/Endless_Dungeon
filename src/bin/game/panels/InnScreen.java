@@ -11,6 +11,7 @@ import static bin.game.GameConstants.BUTTON_PANEL_HEIGHT;
 import static bin.game.GameConstants.BUTTON_PANEL_WIDTH;
 import static bin.game.GameConstants.HERO_PANEL_HEIGHT;
 import static bin.game.GameConstants.HERO_PANEL_WIDTH;
+import bin.game.dungeon.Village;
 import bin.game.dungeon.shop.Shop;
 import bin.game.resources.GraphicResources;
 import bin.game.util.component.Button;
@@ -109,6 +110,7 @@ public class InnScreen extends JPanel
         private void exitShop()
         {
             shop.afterShop();
+            ((Village)Game.getCurrentRoom()).heroToInn();
             ScreenControl.switchScreen(ScreenEnum.MAP);
         }
 

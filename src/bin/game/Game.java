@@ -31,7 +31,7 @@ public class Game
     
     private static final List<Updatable> UPDATABLES = new ArrayList<>();
     
-    private final static Village VILLAGE = new Village();
+    private final static Village VILLAGE = new Village(Village.class.getResourceAsStream("/data/village.map"));
     
     private static Dungeon dungeon;
     

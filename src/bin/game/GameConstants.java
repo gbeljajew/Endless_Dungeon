@@ -38,6 +38,8 @@ public class GameConstants
     
     public static final int MIN_ROOM_SIZE = 11;
     public static final int MAX_ROOM_SIZE = 15;
+    public static final int FLOORS_BETWEEN_PREMADE_MIN = 1;
+    public static final int FLOORS_BETWEEN_PREMADE_MAX = 2;
     
     public static final int HERO_TILESET_WIDTH = 144;
     public static final int HERO_TILESET_HEIGT = 256;
@@ -45,6 +47,11 @@ public class GameConstants
     public static final int HERO_SPRITE_HEIGTH = 64;
     public static final int HERO_FACE_WIDTH = 96;
     public static final int HERO_FACE_HEIGTH = 96;
+    
+    /** minimal number of ticks before NPC will get new text */
+    public static final int TIME_TO_HOLD_ON_TEXT = (1000 / TIMER_PERIOD) * 5; 
+    public static final int NPC_MOVEMENT_TICKS_MIN = 5;
+    public static final int NPC_MOVEMENT_TICKS_MAX = 50;
     
    public static int getMinRoomsOnFloor()
    {

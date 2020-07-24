@@ -135,6 +135,10 @@ public class RandomSet <T extends Randomizable> implements RandomContainer<T>
 
     private T choseRandom()
     {
+        // for cases where there are no items to chose from.
+        if(this.items.isEmpty())
+            return null;
+        
         
         double summ = 0;
         

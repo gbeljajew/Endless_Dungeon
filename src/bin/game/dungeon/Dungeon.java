@@ -30,6 +30,7 @@ import java.util.Arrays;
 import java.util.List;
 import bin.game.dungeon.cristall.Touchable;
 import bin.game.util.OneWaySwitchable;
+import bin.game.util.container.OverlappingDrawableContainer;
 
 /**
  *
@@ -38,13 +39,17 @@ import bin.game.util.OneWaySwitchable;
 public class Dungeon implements Room
 {
     private int level = 1;
-    private FloorType floorType = GameResources.getRandomFloorType();
     
     private Floor floor;
+    private int nextPremadeFloor;
 
     @SuppressWarnings("OverridableMethodCallInConstructor")
     public Dungeon(int level)
     {
+        this.nextPremadeFloor = Utils.generateRandomInt(
+                GameConstants.FLOORS_BETWEEN_PREMADE_MIN, 
+                GameConstants.FLOORS_BETWEEN_PREMADE_MAX);
+        
         this.level = level - 1;
         
         this.nextFloor();
@@ -67,8 +72,31 @@ public class Dungeon implements Room
     void nextFloor()
     {
         this.level++;
-        this.floorType = GameResources.getRandomFloorType();
-        this.floor = new Floor(level, this);
+        
+        if(this.level >= this.nextPremadeFloor)
+        {
+            this.nextPremadeFloor = Utils.generateRandomInt(
+                GameConstants.FLOORS_BETWEEN_PREMADE_MIN, 
+                GameConstants.FLOORS_BETWEEN_PREMADE_MAX)
+                + this.level;
+            
+            Village v = GameResources.getRandomPremadeFloor();
+            
+            if(v == null)
+            {
+                this.floor = new Floor(level, this);
+            }
+            else
+            {
+                // TODO here comes premade floor
+            }
+            
+        }
+        else
+        {
+            this.floor = new Floor(level, this);
+        }
+        
         
         // TODO new floorMap and new room.
     }
@@ -108,6 +136,7 @@ class DungeonRoom implements Room
     
     private final CoordinatesContainer<Tile> map = new CoordinatesSet<>();
     private final CoordinatesContainer<Cristall> cristalls = new CoordinatesSet<>();
+    private final OverlappingDrawableContainer cristallDrawer = new OverlappingDrawableContainer();
     
     private CameraField cameraField;
     private final FloorType floorType;
@@ -117,7 +146,7 @@ class DungeonRoom implements Room
     
     private SwichableTile exit;
     private Animation animation;
-    private Direction exitDirection;
+    private final Direction exitDirection;
     
     public DungeonRoom(FloorType floorType, Direction exitDirection, Direction entryDirection, Floor floor)
     {
@@ -127,6 +156,10 @@ class DungeonRoom implements Room
         
         this.width = Utils.generateRandomInt(GameConstants.MIN_ROOM_SIZE, GameConstants.MAX_ROOM_SIZE);
         this.height = Utils.generateRandomInt(GameConstants.MIN_ROOM_SIZE, GameConstants.MAX_ROOM_SIZE);
+        
+        // this is needed so hero can be overlapped by cristalls if he is further as cristall
+        // or to overlap cristall if hero is closer as cristall to player
+        this.cristallDrawer.add(Game.getHero());
         
         this.calculateNewHeroPositionAndPlaceHero(entryDirection);
         
@@ -157,14 +190,7 @@ class DungeonRoom implements Room
             tile.draw(g, kameraOffsetX, kameraOffsetY);
         }
         
-        // TODO make sure the hero is under cristalls that are more south to him
-        // and over cristalls, thet are north to him.
-        Game.getHero().draw(g, kameraOffsetX, kameraOffsetY);
-        
-        for (Cristall cristall : cristalls)
-        {
-            cristall.draw(g, kameraOffsetX, kameraOffsetY);
-        }
+        this.cristallDrawer.draw(g, kameraOffsetX, kameraOffsetY);
         
         if(this.animation != null)
             this.animation.draw(g, 0, 0);
@@ -296,9 +322,6 @@ class DungeonRoom implements Room
         
         this.map.add(exit);
         
-        
-        
-        
         for (int mx = 0; mx < this.width; mx++)
         {
             for (int my = 0; my < this.height; my++)
@@ -321,7 +344,7 @@ class DungeonRoom implements Room
         // TODO cristalls
         Cristall keyCristall = CristallFactory.getKeyCristall(exit, keyX, keyY);
         
-        this.cristalls.add(keyCristall);
+        this.add(keyCristall);
 
     }
 
@@ -364,6 +387,12 @@ class DungeonRoom implements Room
         }
         
         Game.getHero().setPosition(x, y);
+    }
+
+    private void add(Cristall cristall)
+    {
+        this.cristalls.add(cristall);
+        this.cristallDrawer.add(cristall);
     }
 
     
@@ -501,11 +530,7 @@ class Floor
 
     void nextRoom()
     {
-        // hero position in next room.
-        Hero h = Game.getHero();
-        int x = h.getMapX();
-        int y = h.getMapY();
-
+        
         Direction direction = rooms.get(roomNumber).getExitDirection();
 
         this.roomNumber++;
@@ -517,11 +542,13 @@ class Floor
         }
         
         this.currentRoom = DungeonRoom.createRoom(floorType, rooms.get(roomNumber).getExitDirection(), direction, this);
+        Game.getHero().update();
     }
 
     void nextFloor()
     {
         this.dungeon.nextFloor();
+        Game.getHero().update();
     }
 }
 

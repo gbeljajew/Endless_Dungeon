@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bin.game.dungeon.cristall;
-
-import bin.game.util.drawable.OverlappingDrawable;
+package bin.game.util.drawable;
 
 /**
  *
  * @author gbeljajew
  */
-public interface Cristall extends Touchable, OverlappingDrawable
+public interface OverlappingDrawable extends Drawable
 {
+    int getPicksX();
     
+    int getPicksY();
 }

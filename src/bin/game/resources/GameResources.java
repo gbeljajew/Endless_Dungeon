@@ -7,6 +7,7 @@ package bin.game.resources;
 
 
 import bin.game.dungeon.FloorType;
+import bin.game.dungeon.Village;
 import bin.game.hero.HeroClass;
 import bin.game.util.container.RandomSet;
 import bin.game.util.logger.MyLogger;
@@ -129,5 +130,17 @@ public class GameResources
     {
         initFlorTypes();
         initHeroClasses();
+        initPremadeFloors();
+    }
+
+    public static Village getRandomPremadeFloor()
+    {
+        // TODO get random premade floor
+        return null;
+    }
+
+    private static void initPremadeFloors()
+    {
+        // TODO load all premade floors
     }
 }
